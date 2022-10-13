@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<Pane fx:controller="library.HomeController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Button onAction="#goToBookList" layoutX="117.0" layoutY="104.0" mnemonicParsing="false" prefHeight="87.0" prefWidth="168.0" text="Books">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Button>
+      <Button layoutX="334.0" layoutY="104.0" mnemonicParsing="false" prefHeight="87.0" prefWidth="168.0" text="Students">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Button>
+      <Button layoutX="117.0" layoutY="238.0" mnemonicParsing="false" prefHeight="87.0" prefWidth="168.0" text="Rents">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Button>
+   </children>
+</Pane>
