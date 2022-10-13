@@ -9,6 +9,10 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import library.entities.Book;
 
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ResourceBundle;
 
 public class BookListController implements Initializable {
@@ -18,6 +22,10 @@ public class BookListController implements Initializable {
     public TableColumn<Book,String> tdAuthor;
     public TableColumn<Book,Integer> tdQty;
 
+    public final static String connectionString = "jdbc:mysql://localhost:3306/t2203e";
+    public final static String user = "root";
+    public final static String pwd = "root";// neu la xampp: "" , mamp: "root"
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         tdId.setCellValueFactory(new PropertyValueFactory<Book,Integer>("id"));
@@ -26,9 +34,28 @@ public class BookListController implements Initializable {
         tdQty.setCellValueFactory(new PropertyValueFactory<Book,Integer>("qty"));
 
         ObservableList<Book> ls = FXCollections.observableArrayList();
-        ls.add(new Book(1,"Trí tuệ Do Thái","ABC",10));
-        ls.add(new Book(2,"Trí tuệ VN","XYZ",20));
 
-        tbBooks.setItems(ls);
+        // lay data from database
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection conn = DriverManager.getConnection(connectionString,user,pwd);
+            Statement statement = conn.createStatement();
+            String sql_txt = "select * from books";
+            ResultSet rs = statement.executeQuery(sql_txt);
+            while (rs.next()){
+                int id = rs.getInt("id");
+                String name = rs.getString("name");
+                String author = rs.getString("author");
+                int qty = rs.getInt("qty");
+                Book b = new Book(id,name,author,qty);
+                ls.add(b);
+            }
+
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }finally {
+            tbBooks.setItems(ls);
+        }
+
     }
 }
