@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<Pane fx:controller="library.book.create.BookCreateController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Text layoutX="210.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create a new book">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Text>
+      <TextField fx:id="txtName" layoutX="168.0" layoutY="104.0" prefHeight="41.0" prefWidth="272.0" promptText="Book name...">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtAuthor" layoutX="164.0" layoutY="166.0" prefHeight="41.0" prefWidth="272.0" promptText="Author">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtQty" layoutX="164.0" layoutY="233.0" prefHeight="41.0" prefWidth="272.0" promptText="Quantity">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </TextField>
+      <Button onAction="#submit" layoutX="326.0" layoutY="300.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="109.0" text="Submit" textFill="#b92020">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Button onAction="#backToList" layoutX="31.0" layoutY="16.0" mnemonicParsing="false" text="&lt;&lt; Back" />
+   </children>
+</Pane>

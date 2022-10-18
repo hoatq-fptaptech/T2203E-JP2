@@ -8,6 +8,9 @@ import javafx.scene.control.TextField;
 import library.Main;
 import library.helper.Connector;
 
+import java.sql.PreparedStatement;
+import java.util.ArrayList;
+
 public class BookCreateController {
     public TextField txtName;
     public TextField txtAuthor;
@@ -17,13 +20,16 @@ public class BookCreateController {
         try {
             String name = txtName.getText();
             String author = txtAuthor.getText();
-            int qty = Integer.parseInt(txtQty.getText());
-            String sql_txt = "insert into books(name,author,qty) " +
-                    "values('"+name+"','"+author+"',"+qty+")";
+            Integer qty = Integer.parseInt(txtQty.getText());
+            String sql_txt = "insert into books(name,author,qty) values(?,?,?)";
             Connector conn = new Connector();
-            if(conn.executeQuery(sql_txt)){
+            ArrayList arr = new ArrayList();
+            arr.add(name);
+            arr.add(author);
+            arr.add(qty);
+            if(conn.execute(sql_txt,arr)){
                 backToList();
-            }else{
+            }else {
                 System.out.println("Error");
             }
         }catch (Exception e){

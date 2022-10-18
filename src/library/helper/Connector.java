@@ -1,9 +1,7 @@
 package library.helper;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
+import java.util.ArrayList;
 
 public class Connector {
     public final static String connectionString = "jdbc:mysql://localhost:3306/t2203e";
@@ -40,5 +38,30 @@ public class Connector {
             return false;
         }
         return true;
+    }
+
+    public PreparedStatement getPreparedStatement(String sql) throws Exception{
+        return conn.prepareStatement(sql);
+    }
+
+    public boolean execute(String sql, ArrayList parameters){
+        try {
+            PreparedStatement pstm = getPreparedStatement(sql);
+            for(int i=0;i < parameters.size();i++){
+                if(parameters.get(i) instanceof Integer){
+                    pstm.setInt(i+1,(Integer)parameters.get(i));
+                }else if(parameters.get(i) instanceof Double){
+                    pstm.setDouble(i+1,(Double) parameters.get(i));
+                }else{
+                    pstm.setString(i+1,(String)parameters.get(i));
+                }
+            }
+            pstm.execute();
+        }catch (Exception e){
+            return false;
+        }
+        return true;
+
+
     }
 }
