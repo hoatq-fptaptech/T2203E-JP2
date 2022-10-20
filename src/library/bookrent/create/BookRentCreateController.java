@@ -10,6 +10,7 @@ import library.dao.impls.BookRepository;
 import library.entities.Book;
 
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 public class BookRentCreateController implements Initializable {
@@ -27,6 +28,8 @@ public class BookRentCreateController implements Initializable {
 
     public void submit(ActionEvent event) {
         Book selected = cbBook.getSelectionModel().getSelectedItem();
+        LocalDate dp = dpExpired.getValue();
         System.out.println(selected.getName());
+        System.out.println(dp);
     }
 }
