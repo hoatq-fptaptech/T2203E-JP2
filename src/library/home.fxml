@@ -18,7 +18,7 @@
             <Font size="26.0" />
          </font>
       </Button>
-      <Button layoutX="117.0" layoutY="238.0" mnemonicParsing="false" prefHeight="87.0" prefWidth="168.0" text="Rents">
+      <Button onAction="#goToRents" layoutX="117.0" layoutY="238.0" mnemonicParsing="false" prefHeight="87.0" prefWidth="168.0" text="Rents">
          <font>
             <Font size="26.0" />
          </font>
