@@ -11,6 +11,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import library.Main;
+import library.dao.impls.BookRepository;
 import library.entities.Book;
 import library.helper.Connector;
 
@@ -34,27 +35,10 @@ public class BookListController implements Initializable {
         tdQty.setCellValueFactory(new PropertyValueFactory<Book,Integer>("qty"));
 
         ObservableList<Book> ls = FXCollections.observableArrayList();
-
         // lay data from database
-        try {
-            String sql_txt = "select * from books";
-            Connector conn = Connector.getInstance();
-            ResultSet rs = conn.query(sql_txt);
-            while (rs.next()){
-                int id = rs.getInt("id");
-                String name = rs.getString("name");
-                String author = rs.getString("author");
-                int qty = rs.getInt("qty");
-                Book b = new Book(id,name,author,qty);
-                ls.add(b);
-            }
-
-        }catch (Exception e){
-            System.out.println(e.getMessage());
-        }finally {
-            tbBooks.setItems(ls);
-        }
-
+        BookRepository rp = new BookRepository();
+        ls.addAll(rp.all());
+        tbBooks.setItems(ls);
     }
 
     public void createNewBook(ActionEvent actionEvent)  throws Exception{
