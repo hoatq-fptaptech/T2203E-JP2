@@ -21,7 +21,7 @@
           <TableColumn fx:id="tdName" prefWidth="232.0" text="Name" />
             <TableColumn fx:id="tdAuthor" prefWidth="106.0" text="Author" />
             <TableColumn fx:id="tdQty" minWidth="0.0" prefWidth="71.0" text="Qty" />
-            <TableColumn minWidth="0.0" prefWidth="95.0" text="Action" />
+            <TableColumn fx:id="tdEdit" minWidth="0.0" prefWidth="95.0" text="Action" />
         </columns>
       </TableView>
    </children>

@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -25,6 +26,7 @@ public class BookListController implements Initializable {
     public TableColumn<Book,String> tdName;
     public TableColumn<Book,String> tdAuthor;
     public TableColumn<Book,Integer> tdQty;
+    public TableColumn<Book, Button> tdEdit;
 
 
     @Override
@@ -33,6 +35,7 @@ public class BookListController implements Initializable {
         tdName.setCellValueFactory(new PropertyValueFactory<Book,String>("name"));
         tdAuthor.setCellValueFactory(new PropertyValueFactory<Book,String>("author"));
         tdQty.setCellValueFactory(new PropertyValueFactory<Book,Integer>("qty"));
+        tdEdit.setCellValueFactory(new PropertyValueFactory<Book,Button>("edit"));
 
         ObservableList<Book> ls = FXCollections.observableArrayList();
         // lay data from database
