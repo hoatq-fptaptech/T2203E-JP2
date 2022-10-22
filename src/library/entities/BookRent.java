@@ -1,5 +1,9 @@
 package library.entities;
 
+import library.dao.impls.BookRepository;
+import library.enums.RepoType;
+import library.factory.RepositoryFactory;
+
 import java.util.Date;
 
 public class BookRent {
@@ -65,5 +69,13 @@ public class BookRent {
 
     public void setStatus(Integer status) {
         this.status = status;
+    }
+
+    public Book book(){
+        return ((BookRepository)RepositoryFactory.createRepository(RepoType.BOOK))
+                    .findOne(this.getBookId());
+//        BookRepository br =new BookRepository();
+//        Book b = br.findOne(this.bookId);
+//        return b;
     }
 }
