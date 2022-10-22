@@ -1,13 +1,14 @@
 package library.dao.impls;
 
 import library.dao.interfaces.IBookRepository;
+import library.dao.interfaces.IRepository;
 import library.entities.Book;
 import library.helper.Connector;
 
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
-public class BookRepository implements IBookRepository {
+public class BookRepository implements IRepository<Book> {
     @Override
     public ArrayList<Book> all() {
         ArrayList<Book> ls = new ArrayList<>();

@@ -14,6 +14,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import library.Main;
 import library.dao.impls.BookRepository;
 import library.entities.Book;
+import library.enums.RepoType;
+import library.factory.RepositoryFactory;
 import library.helper.Connector;
 
 import java.net.URL;
@@ -39,7 +41,7 @@ public class BookListController implements Initializable {
 
         ObservableList<Book> ls = FXCollections.observableArrayList();
         // lay data from database
-        BookRepository rp = new BookRepository();
+        BookRepository rp = (BookRepository)RepositoryFactory.createRepository(RepoType.BOOK);
         ls.addAll(rp.all());
         tbBooks.setItems(ls);
     }
