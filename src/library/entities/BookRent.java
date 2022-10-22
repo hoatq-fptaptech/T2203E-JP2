@@ -14,6 +14,9 @@ public class BookRent {
     private Date expiredDate;
     private Integer status;
 
+    private String bookName;
+    private String statusLabel;
+
     public BookRent(Integer id, Integer bookId, Integer studentId, Date rentDate, Date expiredDate, Integer status) {
         this.id = id;
         this.bookId = bookId;
@@ -69,6 +72,18 @@ public class BookRent {
 
     public void setStatus(Integer status) {
         this.status = status;
+    }
+
+    public String getBookName() {
+        return this.book().getName();
+    }
+
+    public void setBookName(String bookName) {
+        this.bookName = bookName;
+    }
+
+    public String getStatusLabel() {
+        return status==0?"Chưa trả":"Đã trả";
     }
 
     public Book book(){

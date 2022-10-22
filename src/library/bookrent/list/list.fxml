@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<Pane fx:controller="library.bookrent.list.RentListController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TableView fx:id="tbRents" layoutX="14.0" layoutY="39.0" prefHeight="348.0" prefWidth="574.0">
+        <columns>
+          <TableColumn fx:id="tdId" prefWidth="75.0" text="Id" />
+            <TableColumn fx:id="tdbook" prefWidth="140.0" text="Book" />
+            <TableColumn fx:id="tdStudent" prefWidth="121.0" text="Student" />
+            <TableColumn fx:id="tdRentDate" prefWidth="79.0" text="Rent date" />
+            <TableColumn fx:id="tdExpired" prefWidth="88.0" text="Expired date" />
+            <TableColumn fx:id="tdStatus" prefWidth="63.0" text="Status" />
+        </columns>
+      </TableView>
+   </children>
+</Pane>
