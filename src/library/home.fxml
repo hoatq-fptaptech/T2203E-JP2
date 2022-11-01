@@ -5,23 +5,25 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
-<Pane fx:controller="library.HomeController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="library.HomeController">
    <children>
-      <Button onAction="#goToBookList" layoutX="117.0" layoutY="104.0" mnemonicParsing="false" prefHeight="87.0" prefWidth="168.0" text="Books">
+      <Button fx:id="books" layoutX="117.0" layoutY="104.0" mnemonicParsing="false" onAction="#goToBookList" prefHeight="87.0" prefWidth="168.0" text="Books">
          <font>
             <Font size="26.0" />
          </font>
       </Button>
-      <Button layoutX="334.0" layoutY="104.0" mnemonicParsing="false" prefHeight="87.0" prefWidth="168.0" text="Students">
+      <Button fx:id="students" layoutX="334.0" layoutY="104.0" mnemonicParsing="false" prefHeight="87.0" prefWidth="168.0" text="Students">
          <font>
             <Font size="26.0" />
          </font>
       </Button>
-      <Button onAction="#goToRents" layoutX="117.0" layoutY="238.0" mnemonicParsing="false" prefHeight="87.0" prefWidth="168.0" text="Rents">
+      <Button fx:id="rents" layoutX="117.0" layoutY="238.0" mnemonicParsing="false" onAction="#goToRents" prefHeight="87.0" prefWidth="168.0" text="Rents">
          <font>
             <Font size="26.0" />
          </font>
       </Button>
+      <RadioButton userData="en" fx:id="langEn" layoutX="502.0" layoutY="14.0" mnemonicParsing="false" onAction="#changeLang" selected="true" text="EN" />
+      <RadioButton userData="vi" fx:id="langVi" layoutX="544.0" layoutY="14.0" mnemonicParsing="false" onAction="#changeLang" text="VN" />
+      <RadioButton userData="de" fx:id="langDe" onAction="#changeLang" layoutX="451.0" layoutY="14.0" mnemonicParsing="false" text="DE" />
    </children>
 </Pane>
