@@ -9,7 +9,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.text.Text;
+import library.entities.CurrentWeather;
 import library.enums.LangType;
+import library.services.WeatherService;
 
 import java.net.URL;
 import java.util.Locale;
@@ -24,6 +29,10 @@ public class HomeController implements Initializable {
     public RadioButton langVi;
     public RadioButton langDe;
     private static LangType lang = LangType.EN;
+    public Text city;
+    public Text temp;
+    public ImageView icon;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         ResourceBundle rb = ResourceBundle.getBundle("demoI18n.message");
@@ -31,6 +40,15 @@ public class HomeController implements Initializable {
         students.setText(rb.getString("students"));
         rents.setText(rb.getString("rents"));
         changeSelected();
+
+        CurrentWeather cw = WeatherService.getCurrentWeather();
+        if(cw != null){
+            city.setText(cw.getName());
+            temp.setText(cw.getMain().getTemp().toString());
+            String ic = cw.getWeather().get(0).getIcon();
+            Image img = new Image("http://openweathermap.org/img/wn/"+ic+"@2x.png");
+            icon.setImage(img);
+        }
     }
 
     private void changeSelected(){

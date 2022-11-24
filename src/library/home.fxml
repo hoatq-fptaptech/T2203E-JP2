@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
@@ -22,8 +23,25 @@
             <Font size="26.0" />
          </font>
       </Button>
-      <RadioButton userData="en" fx:id="langEn" layoutX="502.0" layoutY="14.0" mnemonicParsing="false" onAction="#changeLang" selected="true" text="EN" />
-      <RadioButton userData="vi" fx:id="langVi" layoutX="544.0" layoutY="14.0" mnemonicParsing="false" onAction="#changeLang" text="VN" />
-      <RadioButton userData="de" fx:id="langDe" onAction="#changeLang" layoutX="451.0" layoutY="14.0" mnemonicParsing="false" text="DE" />
+      <RadioButton fx:id="langEn" layoutX="502.0" layoutY="14.0" mnemonicParsing="false" onAction="#changeLang" selected="true" text="EN" userData="en" />
+      <RadioButton fx:id="langVi" layoutX="544.0" layoutY="14.0" mnemonicParsing="false" onAction="#changeLang" text="VN" userData="vi" />
+      <RadioButton fx:id="langDe" layoutX="451.0" layoutY="14.0" mnemonicParsing="false" onAction="#changeLang" text="DE" userData="de" />
+      <Text fx:id="city" layoutX="23.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="City" wrappingWidth="178.291015625">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Text fx:id="temp" layoutX="23.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="28">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Text layoutX="44.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="o" />
+      <Text layoutX="50.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="C">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <ImageView fx:id="icon" fitHeight="52.0" fitWidth="56.0" layoutX="19.0" layoutY="72.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </Pane>
